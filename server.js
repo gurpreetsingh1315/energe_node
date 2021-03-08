@@ -9,6 +9,7 @@ const app = express();
 app.use(bodyParser.json(), cors());
 app.options("*", cors());
 app.post("/get-access-token", async (req, res) => {
+  console.log("req from front end is", req);
   let code = req.body.code;
   let str = `BH3UMXbWSyK4fqdT7sOoJQ:sWV7zr2Tv79XHhbiW618uiJtxqTyVGPn`;
 
@@ -26,7 +27,6 @@ app.post("/get-access-token", async (req, res) => {
         { headers: tokenHeader }
       )
       .then(response => {
-        console.log("response is", response);
         res.status(200).json({ message: "success", data: response.data });
       })
       .catch(err => {
