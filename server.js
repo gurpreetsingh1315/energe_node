@@ -22,7 +22,7 @@ app.post("/get-access-token", async (req, res) => {
   try {
     await axios
       .post(
-        `https://zoom.us/oauth/token?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:5010/meeting`,
+        `https://zoom.us/oauth/token?grant_type=authorization_code&code=${code}&redirect_uri=https://friendly-aryabhata-6fafd4.netlify.app/meeting`,
         {},
         { headers: tokenHeader }
       )
